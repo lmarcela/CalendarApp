@@ -9,7 +9,7 @@ import { messages } from "../helpers/calendar-messages-es";
 import "moment/locale/es";
 import { CalendarEvent } from "./CalendarEvent";
 import { CalendarModal } from "./CalendarModal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiOpenModal } from "../actions/ui";
 import { eventSetActive } from "../actions/events";
 import { AddNewFab } from "../ui/AddNewFab";
@@ -17,7 +17,7 @@ import { AddNewFab } from "../ui/AddNewFab";
 moment.locale("es");
 
 const localizer = momentLocalizer(moment);
-const events = [
+/* const events = [
   {
     title: "Reunion del jefe",
     start: moment().toDate(),
@@ -29,10 +29,12 @@ const events = [
       name: "Marcela",
     },
   },
-];
+]; */
 
 export const CalendarScreen = () => {
   const dispatch = useDispatch();
+  const { events } = useSelector((state) => state.calendar);
+
   const [lastView, setLastView] = useState(
     localStorage.getItem("lastView") || "month"
   );
@@ -43,7 +45,6 @@ export const CalendarScreen = () => {
   };
   const onSelectEvent = (e) => {
     dispatch(eventSetActive(e));
-    dispatch(uiOpenModal());
   };
 
   const onViewChange = (e) => {

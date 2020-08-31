@@ -3,15 +3,15 @@ import { types } from "../types/types";
 const initialState = {
   checking: true,
   /* uid: null,
-  name: null */  
+  name: null */
 };
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    /*case types.authStartLogin:
-      return { ...state, events: [...state.events, action.payload] };
+    case types.authLogin:
+      return { ...state, cheking: false, ...action.payload };
 
-    case types.eventSetActive:
+    /*case types.eventSetActive:
       return { ...state, activeEvent: action.payload };
 
     case types.eventClearActiveEvent:

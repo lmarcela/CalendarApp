@@ -8,7 +8,7 @@ const initialState = {
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    /* case types.eventAddNew:
+    /*case types.authStartLogin:
       return { ...state, events: [...state.events, action.payload] };
 
     case types.eventSetActive:

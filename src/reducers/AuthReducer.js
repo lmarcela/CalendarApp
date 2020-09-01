@@ -9,28 +9,10 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.authLogin:
-      return { ...state, cheking: false, ...action.payload };
+      return { ...state, ...action.payload, cheking: false };
 
-    /*case types.eventSetActive:
-      return { ...state, activeEvent: action.payload };
-
-    case types.eventClearActiveEvent:
-      return { ...state, activeEvent: null };
-
-    case types.eventUpdated:
-      return {
-        ...state,
-        events: state.events.map((e) =>
-          e.id === action.payload.id ? action.payload : e
-        ),
-      };
-
-    case types.eventDeleted:
-      return {
-        ...state,
-        events: state.events.filter((e) => e.id !== state.activeEvent.id),
-        activeEvent: null
-      }; */
+    case types.checkingFinish:
+      return { ...state, checking: false };
 
     default:
       return state;
